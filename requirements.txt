@@ -1,11 +1,8 @@
 streamlit
 pandas
 numpy
-scikit-learn
+plotly
 matplotlib
 seaborn
-plotly
-joblib
-pathlib
-time
+scikit-learn
 statsmodels
