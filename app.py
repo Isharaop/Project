@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib
+import pickle
 import pathlib
 import time
 import plotly.express as px
@@ -20,9 +20,12 @@ st.set_page_config(page_title="Diabetes Prediction App", page_icon="🩺", layou
 # ===============================
 @st.cache_resource
 def load_artifacts():
-    model = joblib.load("model.pkl")
-    feature_info = joblib.load("feature_info.pkl")
-    metrics = joblib.load("metrics.pkl")
+    with open("model_pickle.pkl", "rb") as f:
+        model = pickle.load(f)
+    with open("feature_info_pickle.pkl", "rb") as f:
+        feature_info = pickle.load(f)
+    with open("metrics_pickle.pkl", "rb") as f:
+        metrics = pickle.load(f)
     return model, feature_info, metrics
 
 @st.cache_data
